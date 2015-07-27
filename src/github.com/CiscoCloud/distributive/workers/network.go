@@ -5,6 +5,7 @@ import (
 	"github.com/CiscoCloud/distributive/tabular"
 	"github.com/CiscoCloud/distributive/wrkutils"
 	log "github.com/Sirupsen/logrus"
+	"github.com/miekg/dns"
 	"net"
 	"os/exec"
 	"regexp"
@@ -307,7 +308,11 @@ func canConnect(host string, protocol string, timeout time.Duration) bool {
 	if nanoseconds > 0 {
 		conn, err = net.DialTimeout(timeoutNetwork, timeoutAddress, timeout)
 		if err != nil {
-			fmt.Println(err)
+			log.WithFields(log.Fields{
+				"network": timeoutNetwork,
+				"address": timeoutAddress,
+				"timeout": timeout,
+			}).Warn("Error when connecting to host")
 		}
 	}
 	if conn != nil {
@@ -319,7 +324,7 @@ func canConnect(host string, protocol string, timeout time.Duration) bool {
 	return false
 }
 
-// getConnection(exitCode int, exitMessage string) is an abstraction of TCP and UDP
+// getConnectionWorker is an abstraction of TCP and UDP
 func getConnectionWorker(host string, protocol string, timeoutstr string) (exitCode int, exitMessage string) {
 	dur, err := time.ParseDuration(timeoutstr)
 	if err != nil {
@@ -422,4 +427,48 @@ func responseMatches(parameters []string) (exitCode int, exitMessage string) {
 // the SSL cert on the other end.
 func responseMatchesInsecure(parameters []string) (exitCode int, exitMessage string) {
 	return responseMatchesGeneral(parameters, false)
+}
+
+func getARecordAddresses(target string, server string) (addresses []string) {
+	// if no port was specified, use :53
+	if !regexp.MustCompile(`:\d{1,4}$`).MatchString(server) {
+		server = server + ":53"
+	}
+
+	c := dns.Client{}
+	m := dns.Msg{}
+	m.SetQuestion(target+".", dns.TypeA)
+	r, _, err := c.Exchange(&m, server)
+	if err != nil {
+		log.WithFields(log.Fields{
+			"server": server,
+			"record": target,
+			"error":  err.Error(),
+		}).Fatal("Error when contacting DNS server:")
+	}
+	for _, ans := range r.Answer {
+		addresses = append(addresses, fmt.Sprint(ans.(*dns.A).A))
+	}
+	return addresses
+}
+
+// aRecord queries a specific name from a specific DNS server, and compares
+// the response to an expected IP
+func aRecord(parameters []string) (exitCode int, exitMessage string) {
+	target := parameters[0]
+	expected := parameters[1]
+	server := parameters[2]
+
+	actual := getARecordAddresses(target, server)
+	if len(actual) == 0 {
+		msg := "No results returned from DNS server"
+		msg += "\n\tServer: " + server
+		msg += "\n\tRecord: " + target
+		return 1, msg
+	}
+	if tabular.StrIn(expected, actual) {
+		return 0, ""
+	}
+	msg := "DNS records didn't match expected value"
+	return wrkutils.GenericError(msg, expected, actual)
 }

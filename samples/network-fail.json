@@ -49,6 +49,10 @@
         {
             "Check": "responseMatchesInsecure",
             "Parameters": ["http://pastebin.com/raw.php?i=23ersi8i", "failme{100}"]
+        },
+        {
+            "Check": "aRecord",
+            "Parameters": ["google.com", "failme!", "8.8.8.8"]
         }
     ]
 }

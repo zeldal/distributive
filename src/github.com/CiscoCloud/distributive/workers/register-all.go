@@ -59,6 +59,7 @@ func registerNetwork() {
 	wrkutils.RegisterCheck("routingtablegateway", routingTableGateway, 1)
 	wrkutils.RegisterCheck("responsematches", responseMatches, 2)
 	wrkutils.RegisterCheck("responsematchesinsecure", responseMatchesInsecure, 2)
+	wrkutils.RegisterCheck("arecord", aRecord, 3)
 }
 
 func registerPackage() {

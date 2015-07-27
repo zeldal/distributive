@@ -1,6 +1,9 @@
 package workers
 
 import (
+	"fmt"
+	"net"
+	"reflect"
 	"testing"
 )
 
@@ -125,5 +128,43 @@ func TestReponseMatchesInsecure(t *testing.T) {
 		winners := appendParameter(validURLs, "html")
 		losers := appendParameter(validURLs, "asfdjhow012u")
 		testInputs(t, responseMatches, winners, losers)
+	}
+}
+
+func isNil(i interface{}) bool {
+	return reflect.ValueOf(i).IsNil()
+}
+
+func TestGetARecordAddresses(t *testing.T) {
+	t.Parallel()
+	if testing.Short() {
+		t.Skip("Skipping tests that query remote servers in short mode")
+	} else {
+		for _, srv := range []string{"8.8.8.8", "8.8.4.4"} {
+			for _, hosts := range validHosts {
+				host := hosts[0]
+				ips := getARecordAddresses(host, srv)
+				for _, ip := range ips {
+					// check if it gave a valid IP address
+					if isNil(net.ParseIP(ip)) {
+						msg := "Couldn't parse IP given by DNS server"
+						msg += "\n\tDNS server: " + srv
+						msg += "\n\tTarget: " + host
+						msg += "\n\tResponse: " + fmt.Sprint(ips)
+						t.Error(msg)
+					}
+				}
+			}
+		}
+	}
+}
+
+func TestARecord(t *testing.T) {
+	t.Parallel()
+	if testing.Short() {
+		t.Skip("Skipping tests that query remote servers in short mode")
+	} else {
+		losers := appendParameter(validHosts, "failme")
+		testInputs(t, responseMatches, []parameters{}, losers)
 	}
 }
