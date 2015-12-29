@@ -21,11 +21,11 @@ func swapOrMemory(status string, swapOrMem string, units string) (int, error) {
 		"free":  3,
 	}
 	unitsToFlag := map[string]string{
-		"b":  "--bytes",
-		"kb": "--kilo",
-		"mb": "--mega",
-		"gb": "--giga",
-		"tb": "--tera",
+		"b":  "-b",
+		"kb": "-k",
+		"mb": "-m",
+		"gb": "-g",
+		"tb": "-t",
 	}
 	typeToRow := map[string]int{
 		"memory": 0,
