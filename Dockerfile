@@ -15,13 +15,13 @@ RUN apt-get update
 # misc: lm-sensors, php5-cli, module-init-tools
 RUN apt-get install -y module-init-tools bash golang git php5-cli lm-sensors net-tools && apt-get clean
 
-WORKDIR /gopath/src/github.com/CiscoCloud/distributive
+WORKDIR /gopath/src/github.com/zeldal/distributive
 RUN mkdir -p /gopath/{bin,src}
 ENV GOPATH /gopath
 ENV GOBIN /gopath/bin
 ENV PATH $PATH:/gopath/bin
 RUN go get github.com/tools/godep
-ADD . /gopath/src/github.com/CiscoCloud/distributive
+ADD . /gopath/src/github.com/zeldal/distributive
 # Note: docker-machine on Windows / OS X sometimes gets its time out of sync,
 # which can cause SSL verification failures. If this happens, `go get .`, will
 # fail. If you run into this problem, run this command at your terminal:
@@ -31,4 +31,4 @@ RUN godep go install .
 # Tests don't all pass in this Docker container, but they will soon!
 #RUN godep go test  --short ./...
 
-CMD ["distributive", "-d", "/gopath/src/github.com/CiscoCloud/distributive/samples/", "--verbosity", "info"]
+CMD ["distributive", "-d", "/gopath/src/github.com/zeldal/distributive/samples/", "--verbosity", "info"]
