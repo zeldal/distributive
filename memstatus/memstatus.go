@@ -4,7 +4,7 @@ package memstatus
 
 import (
 	"errors"
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/tabular"
 	"os/exec"
 	"regexp"
 	"strconv"

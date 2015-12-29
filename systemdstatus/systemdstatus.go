@@ -5,7 +5,7 @@ package systemdstatus
 import (
 	"errors"
 	"fmt"
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/tabular"
 	"os/exec"
 	"strings"
 )

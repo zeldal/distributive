@@ -1,7 +1,7 @@
 package checks
 
 import (
-	"github.com/CiscoCloud/distributive/chkutil"
+	"github.com/zeldal/distributive/chkutil"
 	"testing"
 )
 

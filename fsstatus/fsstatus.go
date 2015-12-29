@@ -9,7 +9,7 @@ import (
 	"crypto/sha512"
 	"encoding/hex"
 	"fmt"
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/tabular"
 	"golang.org/x/crypto/sha3"
 	"hash"
 	"os"

@@ -2,9 +2,9 @@ package checks
 
 import (
 	"fmt"
-	"github.com/CiscoCloud/distributive/chkutil"
-	"github.com/CiscoCloud/distributive/errutil"
-	"github.com/CiscoCloud/distributive/usrstatus"
+	"github.com/zeldal/distributive/chkutil"
+	"github.com/zeldal/distributive/errutil"
+	"github.com/zeldal/distributive/usrstatus"
 	"os/user"
 	"reflect"
 	"strconv"

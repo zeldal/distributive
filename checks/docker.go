@@ -1,10 +1,10 @@
 package checks
 
 import (
-	"github.com/CiscoCloud/distributive/chkutil"
-	"github.com/CiscoCloud/distributive/dockerstatus"
-	"github.com/CiscoCloud/distributive/errutil"
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/chkutil"
+	"github.com/zeldal/distributive/dockerstatus"
+	"github.com/zeldal/distributive/errutil"
+	"github.com/zeldal/distributive/tabular"
 	log "github.com/Sirupsen/logrus"
 	"github.com/fsouza/go-dockerclient"
 	"os"

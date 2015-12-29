@@ -23,7 +23,7 @@ EOF
 
 cp checklists/checklists.go{,.bak} # save checklists.go
 echo "$to_append" >> "checklists/checklists.go"
-go-fuzz-build github.com/CiscoCloud/distributive/checklists
+go-fuzz-build github.com/zeldal/distributive/checklists
 mkdir fuzzing/corpus
 cp samples/*.json fuzzing/corpus
 go-fuzz	-bin="checklists-fuzz.zip" -workdir=fuzzing

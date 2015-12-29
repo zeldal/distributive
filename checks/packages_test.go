@@ -2,7 +2,7 @@ package checks
 
 import (
 	"fmt"
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/tabular"
 	"strings"
 	"testing"
 )

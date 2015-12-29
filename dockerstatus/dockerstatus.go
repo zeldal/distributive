@@ -3,7 +3,7 @@
 package dockerstatus
 
 import (
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/tabular"
 	"os/exec"
 	"strings"
 )

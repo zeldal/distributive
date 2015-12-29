@@ -49,7 +49,7 @@ Installation/Building
 ---------------------
 
 To install the development version (potentially unstable):
- 1. Clone this repo: `git clone https://github.com/CiscoCloud/distributive`
+ 1. Clone this repo: `git clone https://github.com/zeldal/distributive`
  2. Get dependencies with `go get .` (or used versioned dependencies with
  [godep] [godep]).
  3. (Optional) Test with `go test -short ./...`
@@ -189,8 +189,8 @@ Unless required by applicable law or agreed to in writing, software distributed 
 
 
 [license]: http://www.apache.org/licenses/LICENSE-2.0
-[wiki]: https://github.com/CiscoCloud/distributive/wiki
-[issues]: https://github.com/CiscoCloud/distributive/issues
+[wiki]: https://github.com/zeldal/distributive/wiki
+[issues]: https://github.com/zeldal/distributive/issues
 [bintray]: https://bintray.com/ciscocloud/rpm/Distributive/view#files
 [UPX]: http://sourceforge.net/projects/upx/
 [goupx]: https://github.com/pwaller/goupx
@@ -200,6 +200,6 @@ Unless required by applicable law or agreed to in writing, software distributed 
 [kubernetes]: http://kubernetes.io/v1.0/docs/user-guide/walkthrough/k8s201.html#health-checking
 [gopath]: https://golang.org/doc/code.html#GOPATH
 [direnv]: https://github.com/direnv/direnv
-[distributive-rpm]: https://github.com/CiscoCloud/distributive-rpm
+[distributive-rpm]: https://github.com/zeldal/distributive-rpm
 [mi]: https://github.com/CiscoCloud/microservices-infrastructure/
 [godep]: https://github.com/tools/godep

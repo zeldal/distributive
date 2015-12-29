@@ -2,10 +2,10 @@ package checks
 
 import (
 	"fmt"
-	"github.com/CiscoCloud/distributive/chkutil"
-	"github.com/CiscoCloud/distributive/errutil"
-	"github.com/CiscoCloud/distributive/fsstatus"
-	"github.com/CiscoCloud/distributive/memstatus"
+	"github.com/zeldal/distributive/chkutil"
+	"github.com/zeldal/distributive/errutil"
+	"github.com/zeldal/distributive/fsstatus"
+	"github.com/zeldal/distributive/memstatus"
 	log "github.com/Sirupsen/logrus"
 	"io/ioutil"
 	"os"

@@ -1,8 +1,8 @@
 package checklists
 
 import (
-	"github.com/CiscoCloud/distributive/checks"
-	"github.com/CiscoCloud/distributive/chkutil"
+	"github.com/zeldal/distributive/checks"
+	"github.com/zeldal/distributive/chkutil"
 	log "github.com/Sirupsen/logrus"
 	"strings"
 )

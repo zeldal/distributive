@@ -3,7 +3,7 @@
 package usrstatus
 
 import (
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/tabular"
 	"io/ioutil"
 	"regexp"
 	"strconv"

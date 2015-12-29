@@ -2,10 +2,10 @@ package checks
 
 import (
 	"fmt"
-	"github.com/CiscoCloud/distributive/chkutil"
-	"github.com/CiscoCloud/distributive/errutil"
-	"github.com/CiscoCloud/distributive/netstatus"
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/chkutil"
+	"github.com/zeldal/distributive/errutil"
+	"github.com/zeldal/distributive/netstatus"
+	"github.com/zeldal/distributive/tabular"
 	log "github.com/Sirupsen/logrus"
 	"net"
 	"os/exec"

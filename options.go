@@ -1,7 +1,7 @@
 package main
 
 import (
-	"github.com/CiscoCloud/distributive/errutil"
+	"github.com/zeldal/distributive/errutil"
 	log "github.com/Sirupsen/logrus"
 	"github.com/codegangsta/cli"
 	"net/url"

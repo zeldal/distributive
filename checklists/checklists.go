@@ -3,8 +3,8 @@ package checklists
 import (
 	"encoding/json"
 	"fmt"
-	"github.com/CiscoCloud/distributive/chkutil"
-	"github.com/CiscoCloud/distributive/errutil"
+	"github.com/zeldal/distributive/chkutil"
+	"github.com/zeldal/distributive/errutil"
 	log "github.com/Sirupsen/logrus"
 	"io/ioutil"
 	"os"

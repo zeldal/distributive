@@ -6,7 +6,7 @@
 package main
 
 import (
-	"github.com/CiscoCloud/distributive/checklists"
+	"github.com/zeldal/distributive/checklists"
 	log "github.com/Sirupsen/logrus"
 	"github.com/mitchellh/panicwrap"
 	"os"

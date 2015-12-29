@@ -2,7 +2,7 @@ FROM ubuntu:wily
 MAINTAINER Langston Barrett <langston@aster.is> (@siddharthist)
 
 # If this file doesn't immedately work for you, please submit a Github issue:
-# https://github.com/CiscoCloud/distributive/issues
+# https://github.com/zeldal/distributive/issues
 
 # This docker container should run and then stop immediately when the checklist
 # has been completed.

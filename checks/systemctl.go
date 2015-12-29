@@ -1,10 +1,10 @@
 package checks
 
 import (
-	"github.com/CiscoCloud/distributive/chkutil"
-	"github.com/CiscoCloud/distributive/errutil"
-	"github.com/CiscoCloud/distributive/systemdstatus"
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/chkutil"
+	"github.com/zeldal/distributive/errutil"
+	"github.com/zeldal/distributive/systemdstatus"
+	"github.com/zeldal/distributive/tabular"
 	"os"
 	"strings"
 )

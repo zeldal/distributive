@@ -4,8 +4,8 @@ package netstatus
 
 import (
 	"fmt"
-	"github.com/CiscoCloud/distributive/chkutil"
-	"github.com/CiscoCloud/distributive/tabular"
+	"github.com/zeldal/distributive/chkutil"
+	"github.com/zeldal/distributive/tabular"
 	log "github.com/Sirupsen/logrus"
 	"net"
 	"regexp"

@@ -2,7 +2,7 @@ package checks
 
 import (
 	"fmt"
-	"github.com/CiscoCloud/distributive/chkutil"
+	"github.com/zeldal/distributive/chkutil"
 	//log "github.com/Sirupsen/logrus"
 	"testing"
 )

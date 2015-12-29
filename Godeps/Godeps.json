@@ -1,5 +1,5 @@
 {
-	"ImportPath": "github.com/CiscoCloud/distributive",
+	"ImportPath": "github.com/zeldal/distributive",
 	"GoVersion": "go1.5.1",
 	"Deps": [
 		{

@@ -9,7 +9,7 @@ import (
 
 var (
 	recoveryFile    = "distributive.panic.log"
-	issueURL        = "github.com/CiscoCloud/distributive/issues"
+	issueURL        = "github.com/zeldal/distributive/issues"
 	recoveryMessage = `######## DISTRIBUTIVE CRASH ########
 Distributive has recovered from a panic but had to shut down ungracefully. This
 is always a bug! If you would, please file the output placed in the local
