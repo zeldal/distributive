@@ -102,7 +102,7 @@ func FileHasPermissions(expectedPerms string, path string) (bool, error) {
 // how many inodes are in this given state? state can be one of:
 // total, used, free, percent
 func inodesInState(filesystem, state string) (total uint64, err error) {
-	cmd := exec.Command("df", "-i")
+	cmd := exec.Command("df", "-iP")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return total, err
