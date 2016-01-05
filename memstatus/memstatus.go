@@ -40,7 +40,7 @@ func swapOrMemory(status string, swapOrMem string, units string) (int, error) {
 		return 0, errors.New("Invalid option in swapOrMemory: " + swapOrMem)
 	}
 	// execute free and return the appropriate output
-	cmd := exec.Command("free", unitsToFlag[units])
+	cmd := exec.Command("free", unitsToFlag[units], "-o")
 	out, err := cmd.CombinedOutput()
 	if err != nil {
 		return 0, err
