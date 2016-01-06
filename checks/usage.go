@@ -42,12 +42,17 @@ func (chk MemoryUsage) New(params []string) (chkutil.Check, error) {
 }
 
 func (chk MemoryUsage) Status() (int, string, error) {
-	actualPercentFree, err := memstatus.FreeMemory("percent")
-	actualPercentUsed := 100 - actualPercentFree
+	actualPercentUsed, err := memstatus.FreeMemory("percent")
+//	actualPercentUsed := 100 - actualPercentFree
 	if err != nil {
 		return 1, "", err
 	}
+	log.WithFields(log.Fields{
+		"Specified": int(chk.maxPercentUsed),
+		"actual":  actualPercentUsed,
+	}).Debug("MemoryUsage:")
 	if actualPercentUsed < int(chk.maxPercentUsed) {
+
 		return errutil.Success()
 	}
 	msg := "Memory usage above defined maximum"
