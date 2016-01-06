@@ -48,8 +48,8 @@ func (chk MemoryUsage) Status() (int, string, error) {
 		return 1, "", err
 	}
 	log.WithFields(log.Fields{
-		"Specified": int(chk.maxPercentUsed),
-		"actual":  actualPercentUsed,
+		"Specified": strconv.Itoa(int(chk.maxPercentUsed)),
+		"actual":  strconv.Itoa(actualPercentUsed),
 	}).Debug("MemoryUsage:")
 	if actualPercentUsed < int(chk.maxPercentUsed) {
 
