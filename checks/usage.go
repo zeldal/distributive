@@ -42,8 +42,8 @@ func (chk MemoryUsage) New(params []string) (chkutil.Check, error) {
 }
 
 func (chk MemoryUsage) Status() (int, string, error) {
-	actualPercentUsed, err := memstatus.FreeMemory("percent")
-//	actualPercentUsed := 100 - actualPercentFree
+	actualPercentFree, err := memstatus.FreeMemory("percent")
+	actualPercentUsed := 100 - actualPercentFree
 	if err != nil {
 		return 1, "", err
 	}
